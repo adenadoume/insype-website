@@ -67,10 +67,10 @@ export default function Home() {
             custom={0}
           >
             <p className="eyebrow mb-4 sm:mb-6">{t('founded')} {INSTITUTE.founded}</p>
-            <h1 className="font-serif text-4xl sm:text-hero md:text-display text-white mb-4 sm:mb-6">
+            <h1 className="font-serif text-2xl sm:text-3xl md:text-hero lg:text-display text-white mb-3 sm:mb-4 md:mb-6">
               {heroTitle}
             </h1>
-            <p className="text-base sm:text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-6 sm:mb-10">
+            <p className="text-sm sm:text-base md:text-xl lg:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-4 sm:mb-6 md:mb-10">
               {heroSubtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
