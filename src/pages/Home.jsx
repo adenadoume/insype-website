@@ -25,8 +25,8 @@ export default function Home() {
   const { data: testimonials } = useTestimonials()
   const { t, language } = useLanguage()
 
-  const heroTitle = content?.hero_title || INSTITUTE.name
-  const heroSubtitle = content?.hero_subtitle || INSTITUTE.tagline
+  const heroTitle = content?.hero_title || (language === 'el' ? INSTITUTE.name : 'Institute of Modern Pedagogy')
+  const heroSubtitle = content?.hero_subtitle || (language === 'el' ? INSTITUTE.tagline : 'Medical Day Care Center for People with Special Needs')
   const heroImage = content?.hero_image_url || INSTITUTE_IMAGES.hero
   const introTitle = content?.section_1_title || t('welcomeTitle')
   const introText = content?.section_1_text || t('welcomeText')

@@ -24,8 +24,8 @@ export default function About() {
   const { data: content } = usePageContent('about')
   const { t, language } = useLanguage()
 
-  const heroTitle = content?.hero_title || t('aboutTitle')
-  const heroSubtitle = content?.hero_subtitle || INSTITUTE.name
+  const heroTitle = content?.hero_title || (language === 'el' ? 'Σχετικά με εμάς' : 'About Us')
+  const heroSubtitle = content?.hero_subtitle || (language === 'el' ? INSTITUTE.name : 'Institute of Modern Pedagogy')
   const heroImage = content?.hero_image_url || INSTITUTE_IMAGES.about
 
   useSEO({
