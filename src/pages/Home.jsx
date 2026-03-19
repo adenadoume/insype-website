@@ -218,8 +218,44 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Leadership */}
+      {/* Research */}
       <section className="section-padding bg-cream">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              <p className="eyebrow mb-3 sm:mb-4">{t('research')}</p>
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-heading mb-4 sm:mb-6">{t('researchTitle')}</h2>
+              <p className="text-base sm:text-lg leading-relaxed mb-4 sm:mb-6">
+                {t('researchText1')}
+              </p>
+              <p className="text-base sm:text-lg leading-relaxed mb-4 sm:mb-6">
+                {t('studentEducationText')}
+              </p>
+            </motion.div>
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              custom={1}
+            >
+              <img
+                src={INSTITUTE_IMAGES.building3}
+                alt={language === 'el' ? 'Έρευνα' : 'Research'}
+                className="w-full aspect-[4/3] object-cover shadow-2xl"
+              />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Leadership */}
+      <section className="section-padding bg-ivory">
         <div className="max-w-7xl mx-auto">
           <motion.div
             variants={fadeUp}
