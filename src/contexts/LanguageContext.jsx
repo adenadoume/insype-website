@@ -66,6 +66,31 @@ const translations = {
     viewLargerMap: 'Προβολή μεγαλύτερου χάρτη',
     howToFindUs: 'Πως θα μας βρείτε',
     
+    // Page Titles
+    servicesTitle: 'Υπηρεσίες',
+    servicesSubtitle: 'Οι Θεραπευτικές μας Υπηρεσίες',
+    servicesIntro: 'Προσφέρουμε ολοκληρωμένες θεραπευτικές υπηρεσίες προσαρμοσμένες στις ανάγκες κάθε ατόμου.',
+    casesTitle: 'Περιστατικά',
+    casesSubtitle: 'Τα Περιστατικά που Δεχόμαστε',
+    casesIntro: 'Δεχόμαστε περιστατικά με νευροαναπτυξιακές διαταραχές, σύνδρομα και αναπηρίες:',
+    personnelTitle: 'Προσωπικό',
+    personnelSubtitle: 'Το Εξειδικευμένο Προσωπικό μας',
+    personnelIntro: 'Το Ινστιτούτο διαθέτει εξειδικευμένο προσωπικό από διάφορους επιστημονικούς κλάδους.',
+    galleryTitle: 'Φωτογραφίες',
+    gallerySubtitle: 'Οι Χώροι μας',
+    contactTitle: 'Επικοινωνία',
+    contactSubtitle: 'Επικοινωνήστε μαζί μας',
+    
+    // Personnel Roles
+    psychiatrist: 'Ψυχίατρος',
+    childPsychologist: 'Παιδοψυχολόγος',
+    familyTherapist: 'Οικογενειακός Θεραπευτής',
+    psychologist: 'Ψυχολόγος',
+    speechTherapist: 'Λογοθεραπευτής',
+    physiotherapist: 'Φυσικοθεραπευτής',
+    specialPedagogue: 'Ειδικός Παιδαγωγός',
+    occupationalTherapist: 'Εργοθεραπευτής',
+    
     // Services
     diagnostic: 'Διαγνωστική Αξιολόγηση',
     diagnosticDesc: 'Ολοκληρωμένη αξιολόγηση μαθησιακών δυσκολιών και αναπτυξιακών θεμάτων.',
@@ -182,6 +207,31 @@ const translations = {
     areaMap: 'Area map',
     viewLargerMap: 'View Larger Map',
     howToFindUs: 'Address',
+    
+    // Page Titles
+    servicesTitle: 'Services',
+    servicesSubtitle: 'Our Therapeutic Services',
+    servicesIntro: 'We provide comprehensive therapeutic services tailored to the needs of each individual.',
+    casesTitle: 'Cases',
+    casesSubtitle: 'Cases We Accept',
+    casesIntro: 'We accept cases with neurodevelopmental disorders, syndromes and disabilities:',
+    personnelTitle: 'Personnel',
+    personnelSubtitle: 'Our Specialized Personnel',
+    personnelIntro: 'The Institute has specialized personnel from various scientific fields.',
+    galleryTitle: 'Photos',
+    gallerySubtitle: 'Our Spaces',
+    contactTitle: 'Contact',
+    contactSubtitle: 'Contact Us',
+    
+    // Personnel Roles
+    psychiatrist: 'Psychiatrist',
+    childPsychologist: 'Child Psychologist',
+    familyTherapist: 'Family Therapist',
+    psychologist: 'Psychologist',
+    speechTherapist: 'Speech Therapist',
+    physiotherapist: 'Physiotherapist',
+    specialPedagogue: 'Special Pedagogue',
+    occupationalTherapist: 'Occupational Therapist',
     
     // Services
     diagnostic: 'Diagnostic Evaluation',
