@@ -3,6 +3,7 @@ import { ArrowRight, BookOpen, Hand, MessageCircle, Activity, Heart, Users, Aler
 import { Link } from 'react-router-dom'
 import { SERVICES, INSTITUTE_IMAGES } from '../constants/insype'
 import { usePageContent } from '../hooks/useSupabase'
+import { useLanguage } from '../contexts/LanguageContext'
 import useSEO from '../hooks/useSEO'
 
 const fadeUp = {
@@ -33,14 +34,15 @@ const iconMap = {
 
 export default function Services() {
   const { data: content } = usePageContent('services')
+  const { t, language } = useLanguage()
 
-  const heroTitle = content?.hero_title || 'Υπηρεσίες'
-  const heroSubtitle = content?.hero_subtitle || 'Οι Θεραπευτικές μας Υπηρεσίες'
+  const heroTitle = content?.hero_title || t('servicesTitle')
+  const heroSubtitle = content?.hero_subtitle || t('servicesSubtitle')
   const heroImage = content?.hero_image_url || INSTITUTE_IMAGES.services
 
   useSEO({
-    title: content?.extra_content?.seo_title || 'Υπηρεσίες',
-    description: content?.extra_content?.seo_description || 'Ολοκληρωμένες θεραπευτικές υπηρεσίες για άτομα με ειδικές ανάγκες.',
+    title: content?.extra_content?.seo_title || t('servicesTitle'),
+    description: content?.extra_content?.seo_description || t('servicesIntro'),
   })
 
   return (
@@ -58,7 +60,7 @@ export default function Services() {
         <div className="absolute inset-0 bg-navy/50" />
         <div className="relative z-10 text-center px-6">
           <motion.p variants={fadeUp} initial="hidden" animate="visible" className="eyebrow mb-4">
-            Θεραπευτικές Υπηρεσίες
+            {t('therapeuticServices')}
           </motion.p>
           <motion.h1 variants={fadeUp} initial="hidden" animate="visible" custom={1} className="font-serif text-hero text-white">
             {heroTitle}
@@ -78,7 +80,7 @@ export default function Services() {
           >
             <h2 className="font-serif text-heading mb-6">{heroSubtitle}</h2>
             <p className="text-lg text-charcoal/70 max-w-2xl mx-auto">
-              Προσφέρουμε ολοκληρωμένες θεραπευτικές υπηρεσίες προσαρμοσμένες στις ανάγκες κάθε ατόμου.
+              {t('servicesIntro')}
             </p>
           </motion.div>
 
@@ -96,9 +98,9 @@ export default function Services() {
                 <div className="w-16 h-16 bg-gold/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-gold/20 transition-colors">
                   {iconMap[service.icon] || <BookOpen className="w-8 h-8 text-gold" />}
                 </div>
-                <h3 className="font-serif text-xl mb-3">{service.name}</h3>
-                <p className="text-sm text-gold mb-3">{service.nameEn}</p>
-                <p className="text-charcoal/70 leading-relaxed">{service.description}</p>
+                <h3 className="font-serif text-xl mb-3">{language === 'el' ? service.name : service.nameEn}</h3>
+                <p className="text-sm text-gold mb-3">{language === 'el' ? service.nameEn : service.name}</p>
+                <p className="text-charcoal/70 leading-relaxed">{language === 'el' ? service.description : service.descriptionEn}</p>
               </motion.div>
             ))}
           </div>
@@ -114,12 +116,12 @@ export default function Services() {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <h2 className="font-serif text-heading text-white mb-6">Θέλετε Περισσότερες Πληροφορίες;</h2>
+            <h2 className="font-serif text-heading text-white mb-6">{t('wantToLearnMore')}</h2>
             <p className="text-lg text-white/70 mb-10">
-              Επικοινωνήστε μαζί μας για να μάθετε περισσότερα για τις υπηρεσίες μας.
+              {t('contactDescription')}
             </p>
             <Link to="/contact" className="btn-primary inline-flex items-center gap-2">
-              <span>Επικοινωνία</span>
+              <span>{t('contactUs')}</span>
               <ArrowRight className="w-5 h-5" />
             </Link>
           </motion.div>

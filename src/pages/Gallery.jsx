@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 import { INSTITUTE_IMAGES } from '../constants/insype'
 import { usePageContent, useGalleryImages, useGalleryCategories } from '../hooks/useSupabase'
+import { useLanguage } from '../contexts/LanguageContext'
 import useSEO from '../hooks/useSEO'
 
 const fadeUp = {
@@ -37,25 +38,26 @@ export default function Gallery() {
   const { data: content } = usePageContent('gallery')
   const { data: dbImages } = useGalleryImages()
   const { data: categories } = useGalleryCategories()
+  const { t, language } = useLanguage()
 
   const images = dbImages && dbImages.length > 0 ? dbImages : defaultImages
   const filters = categories || [
-    { slug: 'all', name: 'Όλα' },
-    { slug: 'building', name: 'Κτίριο' },
-    { slug: 'facility', name: 'Χώροι' },
+    { slug: 'all', name: language === 'el' ? 'Όλα' : 'All' },
+    { slug: 'building', name: language === 'el' ? 'Κτίριο' : 'Building' },
+    { slug: 'facility', name: language === 'el' ? 'Χώροι' : 'Spaces' },
   ]
 
   const filteredImages = activeFilter === 'all'
     ? images
     : images.filter(img => img.category?.slug === activeFilter || img.category === activeFilter)
 
-  const heroTitle = content?.hero_title || 'Φωτογραφίες'
-  const heroSubtitle = content?.hero_subtitle || 'Οι Χώροι μας'
+  const heroTitle = content?.hero_title || t('galleryTitle')
+  const heroSubtitle = content?.hero_subtitle || t('gallerySubtitle')
   const heroImage = content?.hero_image_url || INSTITUTE_IMAGES.building1
 
   useSEO({
-    title: content?.extra_content?.seo_title || 'Φωτογραφίες',
-    description: content?.extra_content?.seo_description || 'Φωτογραφίες των χώρων του Ινστιτούτου.',
+    title: content?.extra_content?.seo_title || t('galleryTitle'),
+    description: content?.extra_content?.seo_description || (language === 'el' ? 'Φωτογραφίες των χώρων του Ινστιτούτου.' : 'Photos of the Institute spaces.'),
   })
 
   const openLightbox = (index) => {
@@ -90,7 +92,7 @@ export default function Gallery() {
         <div className="absolute inset-0 bg-navy/50" />
         <div className="relative z-10 text-center px-6">
           <motion.p variants={fadeUp} initial="hidden" animate="visible" className="eyebrow mb-4">
-            Φωτογραφίες
+            {t('gallery')}
           </motion.p>
           <motion.h1 variants={fadeUp} initial="hidden" animate="visible" custom={1} className="font-serif text-hero text-white">
             {heroTitle}
@@ -142,7 +144,7 @@ export default function Gallery() {
                 >
                   <img
                     src={image.image_url}
-                    alt={image.title || 'Φωτογραφία'}
+                    alt={image.title || (language === 'el' ? 'Φωτογραφία' : 'Photo')}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     loading="lazy"
                   />
@@ -190,7 +192,7 @@ export default function Gallery() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               src={filteredImages[lightboxIndex]?.image_url}
-              alt={filteredImages[lightboxIndex]?.title || 'Φωτογραφία'}
+              alt={filteredImages[lightboxIndex]?.title || (language === 'el' ? 'Φωτογραφία' : 'Photo')}
               className="max-w-[90vw] max-h-[90vh] object-contain"
               onClick={(e) => e.stopPropagation()}
             />

@@ -3,6 +3,7 @@ import { ArrowRight, Brain, Heart, Users, Shield, Sparkles } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { CASES, INSTITUTE_IMAGES } from '../constants/insype'
 import { usePageContent } from '../hooks/useSupabase'
+import { useLanguage } from '../contexts/LanguageContext'
 import useSEO from '../hooks/useSEO'
 
 const fadeUp = {
@@ -23,14 +24,15 @@ const icons = [Brain, Heart, Users, Shield, Sparkles, Brain, Heart, Users]
 
 export default function Cases() {
   const { data: content } = usePageContent('cases')
+  const { t, language } = useLanguage()
 
-  const heroTitle = content?.hero_title || 'Περιστατικά'
-  const heroSubtitle = content?.hero_subtitle || 'Τα Περιστατικά που Δεχόμαστε'
+  const heroTitle = content?.hero_title || t('casesTitle')
+  const heroSubtitle = content?.hero_subtitle || t('casesSubtitle')
   const heroImage = content?.hero_image_url || INSTITUTE_IMAGES.building5
 
   useSEO({
-    title: content?.extra_content?.seo_title || 'Περιστατικά',
-    description: content?.extra_content?.seo_description || 'Δεχόμαστε περιστατικά με νευροαναπτυξιακές διαταραχές, σύνδρομα και αναπηρίες.',
+    title: content?.extra_content?.seo_title || t('casesTitle'),
+    description: content?.extra_content?.seo_description || t('casesIntro'),
   })
 
   return (
@@ -48,7 +50,7 @@ export default function Cases() {
         <div className="absolute inset-0 bg-navy/50" />
         <div className="relative z-10 text-center px-6">
           <motion.p variants={fadeUp} initial="hidden" animate="visible" className="eyebrow mb-4">
-            Περιστατικά
+            {t('cases')}
           </motion.p>
           <motion.h1 variants={fadeUp} initial="hidden" animate="visible" custom={1} className="font-serif text-hero text-white">
             {heroTitle}
@@ -68,7 +70,7 @@ export default function Cases() {
           >
             <h2 className="font-serif text-heading mb-6">{heroSubtitle}</h2>
             <p className="text-lg text-charcoal/70 max-w-2xl mx-auto">
-              Δεχόμαστε περιστατικά με νευροαναπτυξιακές διαταραχές, σύνδρομα και αναπηρίες:
+              {t('casesIntro')}
             </p>
           </motion.div>
 
@@ -88,9 +90,9 @@ export default function Cases() {
                   <div className="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-gold/20 transition-colors">
                     <Icon className="w-8 h-8 text-gold" />
                   </div>
-                  <h3 className="font-serif text-xl mb-2">{caseItem.name}</h3>
-                  <p className="text-sm text-gold mb-3">{caseItem.nameEn}</p>
-                  <p className="text-charcoal/70 text-sm leading-relaxed">{caseItem.description}</p>
+                  <h3 className="font-serif text-xl mb-2">{language === 'el' ? caseItem.name : caseItem.nameEn}</h3>
+                  <p className="text-sm text-gold mb-3">{language === 'el' ? caseItem.nameEn : caseItem.name}</p>
+                  <p className="text-charcoal/70 text-sm leading-relaxed">{language === 'el' ? caseItem.description : caseItem.descriptionEn}</p>
                 </motion.div>
               )
             })}
@@ -108,13 +110,13 @@ export default function Cases() {
               whileInView="visible"
               viewport={{ once: true }}
             >
-              <p className="eyebrow mb-4">Εκπαίδευση</p>
-              <h2 className="font-serif text-heading mb-6">Εκπαίδευση Φοιτητών</h2>
+              <p className="eyebrow mb-4">{t('studentEducation')}</p>
+              <h2 className="font-serif text-heading mb-6">{t('studentEducation')}</h2>
               <p className="text-lg leading-relaxed mb-6">
-                Στο πλαίσιο εκπαίδευσης (πρακτικής) φοιτητών ή πτυχιούχων συναφών σπουδών, το Ινστιτούτο έχει δεχθεί άτομα από το πανεπιστήμιο Fontys (Ολλανδία), Πανεπιστήμιο Κρήτης κ.α.
+                {t('studentEducationText')}
               </p>
               <p className="text-lg leading-relaxed">
-                Συνεργαζόμαστε με πανεπιστήμια και εκπαιδευτικά ιδρύματα για την πρακτική άσκηση φοιτητών συναφών σπουδών.
+                {t('therapeuticEducationNote')}
               </p>
             </motion.div>
             <motion.div
@@ -126,7 +128,7 @@ export default function Cases() {
             >
               <img
                 src={INSTITUTE_IMAGES.building4}
-                alt="Εκπαίδευση"
+                alt={t('studentEducation')}
                 className="w-full aspect-[4/3] object-cover shadow-2xl"
               />
             </motion.div>
@@ -143,12 +145,12 @@ export default function Cases() {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <h2 className="font-serif text-heading mb-6">Θέλετε να Μάθετε Περισσότερα;</h2>
+            <h2 className="font-serif text-heading mb-6">{t('wantToLearnMore')}</h2>
             <p className="text-lg text-charcoal/70 mb-10">
-              Επικοινωνήστε μαζί μας για περισσότερες πληροφορίες.
+              {t('contactDescription')}
             </p>
             <Link to="/contact" className="btn-primary inline-flex items-center gap-2">
-              <span>Επικοινωνία</span>
+              <span>{t('contactUs')}</span>
               <ArrowRight className="w-5 h-5" />
             </Link>
           </motion.div>

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { Phone, Mail, MapPin, Send, CheckCircle, Clock } from 'lucide-react'
 import { INSTITUTE, INSTITUTE_IMAGES } from '../constants/insype'
 import { usePageContent, useContactForm } from '../hooks/useSupabase'
+import { useLanguage } from '../contexts/LanguageContext'
 import useSEO from '../hooks/useSEO'
 
 const fadeUp = {
@@ -31,14 +32,15 @@ export default function Contact() {
 
   const { data: content } = usePageContent('contact')
   const contactMutation = useContactForm()
+  const { t, language } = useLanguage()
 
-  const heroTitle = content?.hero_title || 'Επικοινωνία'
-  const heroSubtitle = content?.hero_subtitle || 'Επικοινωνήστε μαζί μας'
+  const heroTitle = content?.hero_title || t('contactTitle')
+  const heroSubtitle = content?.hero_subtitle || t('contactSubtitle')
   const heroImage = content?.hero_image_url || INSTITUTE_IMAGES.contact
 
   useSEO({
-    title: content?.extra_content?.seo_title || 'Επικοινωνία',
-    description: content?.extra_content?.seo_description || 'Επικοινωνήστε με το Ινστιτούτο Σύγχρονης Παιδαγωγικής.',
+    title: content?.extra_content?.seo_title || t('contactTitle'),
+    description: content?.extra_content?.seo_description || (language === 'el' ? 'Επικοινωνήστε με το Ινστιτούτο Σύγχρονης Παιδαγωγικής.' : 'Contact the Institute of Modern Pedagogy.'),
   })
 
   const handleChange = (e) => {
@@ -71,7 +73,7 @@ export default function Contact() {
         <div className="absolute inset-0 bg-navy/50" />
         <div className="relative z-10 text-center px-6">
           <motion.p variants={fadeUp} initial="hidden" animate="visible" className="eyebrow mb-4">
-            Επικοινωνία
+            {t('contact')}
           </motion.p>
           <motion.h1 variants={fadeUp} initial="hidden" animate="visible" custom={1} className="font-serif text-hero text-white">
             {heroTitle}
@@ -98,7 +100,7 @@ export default function Contact() {
                     <Phone className="w-6 h-6 text-gold" />
                   </div>
                   <div>
-                    <h3 className="font-serif text-lg mb-1">Τηλέφωνο</h3>
+                    <h3 className="font-serif text-lg mb-1">{t('phone')}</h3>
                     <a href={`tel:${INSTITUTE.contact.phone}`} className="text-charcoal/70 hover:text-gold transition-colors">
                       {INSTITUTE.contact.phone}
                     </a>
@@ -110,7 +112,7 @@ export default function Contact() {
                     <Mail className="w-6 h-6 text-gold" />
                   </div>
                   <div>
-                    <h3 className="font-serif text-lg mb-1">Email</h3>
+                    <h3 className="font-serif text-lg mb-1">{t('email')}</h3>
                     <a href={`mailto:${INSTITUTE.contact.email}`} className="text-charcoal/70 hover:text-gold transition-colors">
                       {INSTITUTE.contact.email}
                     </a>
@@ -122,7 +124,7 @@ export default function Contact() {
                     <MapPin className="w-6 h-6 text-gold" />
                   </div>
                   <div>
-                    <h3 className="font-serif text-lg mb-1">Διεύθυνση</h3>
+                    <h3 className="font-serif text-lg mb-1">{t('address')}</h3>
                     <p className="text-charcoal/70">{INSTITUTE.contact.address}</p>
                   </div>
                 </div>
@@ -132,8 +134,8 @@ export default function Contact() {
                     <Clock className="w-6 h-6 text-gold" />
                   </div>
                   <div>
-                    <h3 className="font-serif text-lg mb-1">Ωράριο Λειτουργίας</h3>
-                    <p className="text-charcoal/70">Δευτέρα - Παρασκευή: 08:00 - 16:00</p>
+                    <h3 className="font-serif text-lg mb-1">{t('workingHours')}</h3>
+                    <p className="text-charcoal/70">{t('workingHoursText')}</p>
                   </div>
                 </div>
               </div>
@@ -141,7 +143,7 @@ export default function Contact() {
               {/* Map */}
               <div className="mt-10">
                 <iframe
-                  title="Χάρτης"
+                  title={t('areaMap')}
                   src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.123!2d${INSTITUTE.location.coords.lng}!3d${INSTITUTE.location.coords.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDAxJzI1LjkiTiAyM8KwNDQnMzEuOSJF!5e0!3m2!1sel!2sgr!4v1`}
                   width="100%"
                   height="300"
@@ -162,24 +164,24 @@ export default function Contact() {
               custom={1}
             >
               <div className="bg-white p-8 lg:p-10 shadow-lg">
-                <h3 className="font-serif text-2xl mb-6">Στείλτε μας μήνυμα</h3>
+                <h3 className="font-serif text-2xl mb-6">{t('sendMessage')}</h3>
 
                 {submitted ? (
                   <div className="text-center py-12">
                     <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-                    <h4 className="font-serif text-xl mb-2">Ευχαριστούμε!</h4>
-                    <p className="text-charcoal/70 mb-6">Το μήνυμά σας εστάλη επιτυχώς. Θα επικοινωνήσουμε μαζί σας σύντομα.</p>
+                    <h4 className="font-serif text-xl mb-2">{t('thankYou')}</h4>
+                    <p className="text-charcoal/70 mb-6">{t('messageSent')}</p>
                     <button
                       onClick={() => setSubmitted(false)}
                       className="btn-primary"
                     >
-                      Νέο Μήνυμα
+                      {t('newMessage')}
                     </button>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
-                      <label className="block text-sm font-sans font-medium text-charcoal mb-2">Ονοματεπώνυμο *</label>
+                      <label className="block text-sm font-sans font-medium text-charcoal mb-2">{t('fullName')} *</label>
                       <input
                         type="text"
                         name="name"
@@ -190,7 +192,7 @@ export default function Contact() {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-sans font-medium text-charcoal mb-2">Email *</label>
+                      <label className="block text-sm font-sans font-medium text-charcoal mb-2">{t('email')} *</label>
                       <input
                         type="email"
                         name="email"
@@ -201,7 +203,7 @@ export default function Contact() {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-sans font-medium text-charcoal mb-2">Τηλέφωνο</label>
+                      <label className="block text-sm font-sans font-medium text-charcoal mb-2">{t('phone')}</label>
                       <input
                         type="tel"
                         name="phone"
@@ -211,7 +213,7 @@ export default function Contact() {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-sans font-medium text-charcoal mb-2">Θέμα *</label>
+                      <label className="block text-sm font-sans font-medium text-charcoal mb-2">{t('subject')} *</label>
                       <input
                         type="text"
                         name="subject"
@@ -222,7 +224,7 @@ export default function Contact() {
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-sans font-medium text-charcoal mb-2">Μήνυμα *</label>
+                      <label className="block text-sm font-sans font-medium text-charcoal mb-2">{t('message')} *</label>
                       <textarea
                         name="message"
                         value={formData.message}
@@ -238,11 +240,11 @@ export default function Contact() {
                       className="btn-primary w-full inline-flex items-center justify-center gap-2 disabled:opacity-50"
                     >
                       {contactMutation.isPending ? (
-                        'Αποστολή...'
+                        t('sending')
                       ) : (
                         <>
                           <Send className="w-5 h-5" />
-                          <span>Αποστολή</span>
+                          <span>{t('sendMessage')}</span>
                         </>
                       )}
                     </button>

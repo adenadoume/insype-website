@@ -3,6 +3,7 @@ import { ArrowRight, Stethoscope, Brain, Users, Heart, MessageCircle, Activity, 
 import { Link } from 'react-router-dom'
 import { PERSONNEL, INSTITUTE_IMAGES } from '../constants/insype'
 import { usePageContent } from '../hooks/useSupabase'
+import { useLanguage } from '../contexts/LanguageContext'
 import useSEO from '../hooks/useSEO'
 
 const fadeUp = {
@@ -34,14 +35,15 @@ const iconMap = {
 
 export default function Personnel() {
   const { data: content } = usePageContent('personnel')
+  const { t, language } = useLanguage()
 
-  const heroTitle = content?.hero_title || 'Προσωπικό'
-  const heroSubtitle = content?.hero_subtitle || 'Το Εξειδικευμένο Προσωπικό μας'
+  const heroTitle = content?.hero_title || t('personnelTitle')
+  const heroSubtitle = content?.hero_subtitle || t('personnelSubtitle')
   const heroImage = content?.hero_image_url || INSTITUTE_IMAGES.building6
 
   useSEO({
-    title: content?.extra_content?.seo_title || 'Προσωπικό',
-    description: content?.extra_content?.seo_description || 'Το εξειδικευμένο προσωπικό του Ινστιτούτου Σύγχρονης Παιδαγωγικής.',
+    title: content?.extra_content?.seo_title || t('personnelTitle'),
+    description: content?.extra_content?.seo_description || t('personnelIntro'),
   })
 
   return (
@@ -59,7 +61,7 @@ export default function Personnel() {
         <div className="absolute inset-0 bg-navy/50" />
         <div className="relative z-10 text-center px-6">
           <motion.p variants={fadeUp} initial="hidden" animate="visible" className="eyebrow mb-4">
-            Προσωπικό
+            {t('personnel')}
           </motion.p>
           <motion.h1 variants={fadeUp} initial="hidden" animate="visible" custom={1} className="font-serif text-hero text-white">
             {heroTitle}
@@ -79,7 +81,7 @@ export default function Personnel() {
           >
             <h2 className="font-serif text-heading mb-6">{heroSubtitle}</h2>
             <p className="text-lg text-charcoal/70 max-w-2xl mx-auto">
-              Το Ινστιτούτο διαθέτει εξειδικευμένο προσωπικό από διάφορους επιστημονικούς κλάδους.
+              {t('personnelIntro')}
             </p>
           </motion.div>
 
@@ -97,8 +99,8 @@ export default function Personnel() {
                 <div className="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-gold/20 transition-colors">
                   {iconMap[member.icon] || <Users className="w-8 h-8 text-gold" />}
                 </div>
-                <h3 className="font-serif text-xl mb-2">{member.name}</h3>
-                <p className="text-sm text-gold">{member.nameEn}</p>
+                <h3 className="font-serif text-xl mb-2">{language === 'el' ? member.name : member.nameEn}</h3>
+                <p className="text-sm text-gold">{language === 'el' ? member.nameEn : member.name}</p>
               </motion.div>
             ))}
           </div>
@@ -117,7 +119,7 @@ export default function Personnel() {
             >
               <img
                 src={INSTITUTE_IMAGES.building7}
-                alt="Προσωπικό"
+                alt={t('personnel')}
                 className="w-full aspect-[4/3] object-cover shadow-2xl"
               />
             </motion.div>
@@ -128,13 +130,13 @@ export default function Personnel() {
               viewport={{ once: true }}
               custom={1}
             >
-              <p className="eyebrow mb-4">Εκπαίδευση</p>
-              <h2 className="font-serif text-heading mb-6">Συνεχής Εκπαίδευση</h2>
+              <p className="eyebrow mb-4">{t('studentEducation')}</p>
+              <h2 className="font-serif text-heading mb-6">{t('therapeuticEducationNote')}</h2>
               <p className="text-lg leading-relaxed mb-6">
-                Το προσωπικό μας συμμετέχει σε συνεχείς εκπαιδευτικές δραστηριότητες και συνέδρια για την παρακολούθηση των νεότερων εξελίξεων στον τομέα της ειδικής αγωγής.
+                {t('studentEducationText')}
               </p>
               <p className="text-lg leading-relaxed">
-                Συνεργαζόμαστε με πανεπιστήμια και ερευνητικά ιδρύματα για την ανάπτυξη νέων θεραπευτικών μεθόδων.
+                {t('therapeuticEducationNote')}
               </p>
             </motion.div>
           </div>
@@ -150,12 +152,12 @@ export default function Personnel() {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <h2 className="font-serif text-heading mb-6">Θέλετε να Μάθετε Περισσότερα;</h2>
+            <h2 className="font-serif text-heading mb-6">{t('wantToLearnMore')}</h2>
             <p className="text-lg text-charcoal/70 mb-10">
-              Επικοινωνήστε μαζί μας για περισσότερες πληροφορίες.
+              {t('contactDescription')}
             </p>
             <Link to="/contact" className="btn-primary inline-flex items-center gap-2">
-              <span>Επικοινωνία</span>
+              <span>{t('contactUs')}</span>
               <ArrowRight className="w-5 h-5" />
             </Link>
           </motion.div>
