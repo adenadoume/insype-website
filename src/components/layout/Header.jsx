@@ -70,11 +70,16 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-2 sm:gap-3">
-              <div className={`font-serif text-base sm:text-xl font-semibold tracking-wide ${
+            <Link to="/" className="flex items-center gap-2">
+              <img 
+                src="/images/insype-logo-2.png" 
+                alt="INSYPE Logo"
+                className="h-10 w-auto"
+              />
+              <div className={`font-serif text-sm sm:text-base font-semibold tracking-wide hidden sm:block ${
                 scrolled ? 'text-navy' : 'text-white'
               }`}>
-                {INSTITUTE.name}
+                {language === 'el' ? INSTITUTE.name : 'INSYPE'}
               </div>
             </Link>
 
