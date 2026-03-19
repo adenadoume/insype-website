@@ -1,0 +1,3 @@
+# MIMO-PRO Cline 19MAR26
+
+@/website-cms-handoff.md create website according to md file for Insype using insypeold and insype folder template for website is in folder /Users/nucintosh/PYTHON/OIK105\ SEAGONIA/seagonia-react-cms-refine-dev create artwork images and icons and logo using nano banan pro i have api key tell me how push website to https://github.com/adenadoume/insype-website  i will connect to vercel and open supabase

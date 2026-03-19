@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<install version="1.5" type="template">       
+<name>Jet30</name>       
+<creationDate>25/6/2009</creationDate>       
+<author>Manolis Markatselas</author>       
+<copyright>GPL</copyright>       
+<authorEmail>info@smart-books.gr</authorEmail>       
+<authorUrl>http://www.smart-books.gr</authorUrl>       
+<version>1.0</version>       
+<description>Template for Book</description>       
+<files> 
+<filename>index.php</filename>             
+<filename>templateDetails.xml</filename>             
+<filename>js/somejsfile.js</filename>             
+<filename>images/btn_go.gif</filename>             
+<filename>images/header.gif</filename> 
+<filename>images/top.gif</filename>             
+<filename>images/nav_bar.gif</filename>             
+<filename>images/nav_div.gif</filename>             
+<filename>images/nav_bg.gif</filename>             
+<filename>images/nav_hover.gif</filename>             
+<filename>images/logo.gif</filename>             
+<filename>images/slogan.gif</filename>             
+<filename>images/lft_box_bg.gif</filename>             
+<filename>images/lft_pic1.gif</filename>             
+<filename>images/one.gif</filename>             
+<filename>images/lft_box_bg.gif</filename>             
+<filename>images/lft_pic2.gif</filename>     
+<filename>images/two.gif</filename>             
+<filename>images/lft_pic3.gif</filename>             
+<filename>images/three.gif</filename>             
+<filename>images/right_panel_bg.gif</filename>             
+<filename>images/right_top.gif</filename>             
+<filename>images/right_panel_pic.gif</filename>             
+<filename>images/right_bottom.gif</filename>             
+<filename>images/body_bottom_bg.gif</filename>             
+<filename>images/arrow_red.gif</filename>             
+<filename>images/arrow_white.gif</filename>             
+ <filename>images/arrow_white_hover.gif</filename>             
+<filename>images/arrow_red.gif</filename>             
+<filename>images/date_bg.gif</filename>             
+<filename>images/member_login_bg.gif</filename>             
+ <filename>images/member_form_bg.gif</filename>             
+<filename>images/register_member_icon.gif</filename>             
+<filename>images/btn_go.gif</filename>             
+<filename>images/footer_bg.gif</filename>             
+<filename>images/subscribe_icon.gif</filename>             
+<filename>images/xhtml_bg.gif</filename>             
+<filename>images/xhtml_bg_hover.gif</filename>             
+<filename>images/css_bg.gif</filename>             
+<filename>css_bg_hover.gif</filename> 
+<filename>mw_readon.png</filename>                         
+<filename>css/customize.css</filename>             
+<filename>css/layout.css</filename>             
+<filename>css/template_css.css</filename>        
+</files>       
+<positions> 
+<position>top</position>             
+<position>left</position>             
+<position>banner</position>             
+<position>right</position>      
+<position>user1</position>             
+<position>user2</position>             
+<position>user3</position>
+<position>user4</position>             
+<position>user5</position>             
+<position>user6</position>                    
+<position>user7</position>             
+<position>user8</position>             
+<position>user9</position>                                     
+<position>footer</position>       
+</positions>          
+<params> 
+<param name="colorVariation" type="list" default="white" la-bel="Color Variation" description="Color variation to use">                   
+<option value="blue">Blue</option>                   
+<option value="red">Red</option>             
+</param>          
+</params> 
+</install>

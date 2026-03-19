@@ -1,0 +1,150 @@
+import { createClient } from '@supabase/supabase-js'
+
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
+  auth: {
+    persistSession: false,
+  },
+  realtime: {
+    params: {
+      eventsPerSecond: 2,
+    },
+  },
+})
+
+// API functions
+export const insypeAPI = {
+  // Get institute settings
+  async getSettings() {
+    const { data, error } = await supabase
+      .from('institute_settings')
+      .select('*')
+      .single()
+    if (error) throw error
+    return data
+  },
+
+  // Get all services
+  async getServices() {
+    const { data, error } = await supabase
+      .from('services')
+      .select('*')
+      .eq('is_published', true)
+      .order('display_order', { ascending: true })
+    if (error) throw error
+    return data
+  },
+
+  // Get single service by slug
+  async getService(slug) {
+    const { data, error } = await supabase
+      .from('services')
+      .select('*')
+      .eq('slug', slug)
+      .single()
+    if (error) throw error
+    return data
+  },
+
+  // Get all case types
+  async getCaseTypes() {
+    const { data, error } = await supabase
+      .from('case_types')
+      .select('*')
+      .eq('is_published', true)
+      .order('display_order', { ascending: true })
+    if (error) throw error
+    return data
+  },
+
+  // Get all team members
+  async getPersonnel() {
+    const { data, error } = await supabase
+      .from('personnel')
+      .select('*')
+      .eq('is_published', true)
+      .order('display_order', { ascending: true })
+    if (error) throw error
+    return data
+  },
+
+  // Get all testimonials
+  async getTestimonials() {
+    const { data, error } = await supabase
+      .from('testimonials')
+      .select('*')
+      .eq('is_published', true)
+      .order('display_order', { ascending: true })
+    if (error) throw error
+    return data
+  },
+
+  // Get gallery images
+  async getGalleryImages(categorySlug) {
+    let query = supabase
+      .from('gallery_images')
+      .select('*, category:gallery_categories(*)')
+      .eq('is_published', true)
+      .order('display_order', { ascending: true })
+
+    if (categorySlug) {
+      query = query.eq('gallery_categories.slug', categorySlug)
+    }
+
+    const { data, error } = await query
+    if (error) throw error
+    return data
+  },
+
+  // Get gallery categories
+  async getGalleryCategories() {
+    const { data, error } = await supabase
+      .from('gallery_categories')
+      .select('*')
+      .order('display_order', { ascending: true })
+    if (error) throw error
+    return data
+  },
+
+  // Get page content
+  async getPageContent(pageName) {
+    const { data, error } = await supabase
+      .from('page_content')
+      .select('*')
+      .eq('page_name', pageName)
+      .single()
+    if (error) throw error
+    return data
+  },
+
+  // Get text snippet
+  async getText(key) {
+    const { data, error } = await supabase
+      .from('texts')
+      .select('value')
+      .eq('key', key)
+      .single()
+    if (error) throw error
+    return data?.value
+  },
+
+  // Submit contact form
+  async submitContact(formData) {
+    const { data, error } = await supabase
+      .from('contact_messages')
+      .insert([formData])
+    if (error) throw error
+    return data
+  },
+
+  // Subscribe to newsletter
+  async subscribeNewsletter(email) {
+    const { data, error } = await supabase
+      .from('newsletter_subscribers')
+      .insert([{ email }])
+    if (error) throw error
+    return data
+  },
+}
