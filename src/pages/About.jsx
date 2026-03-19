@@ -78,7 +78,7 @@ In February 2008, the Institute was moved to 25 Teo Street and Olofytou in Athen
             animate="visible"
             className="eyebrow mb-3 sm:mb-4"
           >
-            {INSTITUTE.nameEn}
+            {language === 'el' ? INSTITUTE.name : INSTITUTE.nameEn}
           </motion.p>
           <motion.h1
             variants={fadeUp}
