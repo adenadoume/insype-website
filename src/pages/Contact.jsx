@@ -40,7 +40,7 @@ export default function Contact() {
 
   useSEO({
     title: content?.extra_content?.seo_title || t('contactTitle'),
-    description: content?.extra_content?.seo_description || (language === 'el' ? 'Επικοινωνήστε με το Ινστιτούτο Σύγχρονης Παιδαγωγικής.' : 'Contact the Institute of Modern Pedagogy.'),
+    description: content?.extra_content?.seo_description || (language === 'el' ? 'Επικοινωνήστε με το Ινστιτούτο Σύγχρονης Παιδαγωγικής.' : 'Contact the Institute of Modern Education.'),
   })
 
   const handleChange = (e) => {

@@ -1,10 +1,10 @@
 // Insype Institute Constants
 // Ινστιτούτο Σύγχρονης Παιδαγωγικής
-// Institute of Modern Pedagogy - Day Care Center for People with Special Needs
+// Institute of Modern Education - Day Care Center for People with Special Needs
 
 export const INSTITUTE = {
   name: 'Ινστιτούτο Σύγχρονης Παιδαγωγικής',
-  nameEn: 'Institute of Modern Pedagogy',
+  nameEn: 'Institute of Modern Education',
   tagline: 'Κέντρο Ημερήσιας Φροντίδας ΑΜΕΑ',
   taglineEn: 'Medical Day Care Center for People with Special Needs',
   founded: 1986,
