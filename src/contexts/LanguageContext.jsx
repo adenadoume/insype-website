@@ -1,4 +1,8 @@
-import { createContext, useContext, useState, useEffect } from 'react'
+imΥπηρεσίες
+Περιστατικά
+Προσωπικό
+Φωτογραφίες
+Επικοινωνίαport { createContext, useContext, useState, useEffect } from 'react'
 
 const LanguageContext = createContext()
 
@@ -42,7 +46,7 @@ const translations = {
     research: 'Έρευνα',
     researchTitle: 'Ερευνητικό Έργο',
     researchText1: 'Σε συνεργασία με το Ερευνητικό και Ακαδημαϊκό Ινστιτούτο Αθηνών εργαζόμαστε στην ανάπτυξη κλιμάκων αξιολόγησης και κλιμάκων μέτρησης των αποτελεσμάτων των θεραπευτικών εφαρμογών οι οποίες μπορούν εν συνεχεία να χρησιμοποιηθούν τόσο για την ανάπτυξη υπηρεσιών ψυχικής υγείας σε ευρύτερο πεδίο αλλά πολύ περισσότερο στην αξιολόγηση των θεραπευτικών τους μεθόδων.',
-    researchText2: '',
+    researchText2: 'Το ερευνητικό μας έργο επικεντρώνεται στην ανάπτυξη καινοτόμων θεραπευτικών προσεγγίσεων για άτομα με νευροαναπτυξιακές διαταραχές, με ιδιαίτερη έμφαση στη βελτίωση της ποιότητας ζωής και της κοινωνικής ένταξης.',
     studentEducation: 'Εκπαίδευση φοιτητών',
     studentEducationText: 'Στο πλαίσιο εκπαίδευσης (πρακτικής) φοιτητών ή πτυχιούχων συναφών σπουδών, το Ινστιτούτο έχει δεχθεί άτομα από το πανεπιστήμιο Fontys (Ολλανδία), Πανεπιστήμιο Κρήτης κ.α.',
     therapeuticEducationNote: 'Η θεραπευτική εκπαίδευση παρέχεται ατομικά και σε μικρές ομάδες.',
@@ -184,7 +188,7 @@ const translations = {
     research: 'Research',
     researchTitle: 'Research Work',
     researchText1: 'In collaboration with the Research and Academic Institute of Athens, we work on developing evaluation scales and measurement scales for the results of therapeutic applications which can subsequently be used both for the development of mental health services in a broader field but more importantly for the evaluation of their therapeutic methods.',
-    researchText2: '',
+    researchText2: 'Our research focuses on developing innovative therapeutic approaches for individuals with neurodevelopmental disorders, with particular emphasis on improving quality of life and social integration.',
     studentEducation: 'Student Education',
     studentEducationText: 'In the framework of education (internship) of students or graduates of related studies, the Institute has accepted individuals from Fontys University (Netherlands), University of Crete, etc.',
     therapeuticEducationNote: 'Therapeutic education is provided individually and in small groups.',
