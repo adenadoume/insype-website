@@ -48,11 +48,11 @@ export default function Cases() {
           style={{ backgroundImage: `url(${heroImage})` }}
         />
         <div className="absolute inset-0 bg-navy/50" />
-        <div className="relative z-10 text-center px-6">
-          <motion.p variants={fadeUp} initial="hidden" animate="visible" className="eyebrow mb-4">
+        <div className="relative z-10 text-center px-4 sm:px-6">
+          <motion.p variants={fadeUp} initial="hidden" animate="visible" className="eyebrow mb-3 sm:mb-4">
             {t('cases')}
           </motion.p>
-          <motion.h1 variants={fadeUp} initial="hidden" animate="visible" custom={1} className="font-serif text-hero text-white">
+          <motion.h1 variants={fadeUp} initial="hidden" animate="visible" custom={1} className="font-serif text-3xl sm:text-hero text-white">
             {heroTitle}
           </motion.h1>
         </div>
@@ -66,15 +66,15 @@ export default function Cases() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-10 sm:mb-16"
           >
-            <h2 className="font-serif text-heading mb-6">{heroSubtitle}</h2>
-            <p className="text-lg text-charcoal/70 max-w-2xl mx-auto">
+            <h2 className="font-serif text-2xl sm:text-3xl lg:text-heading mb-4 sm:mb-6">{heroSubtitle}</h2>
+            <p className="text-base sm:text-lg text-charcoal/70 max-w-2xl mx-auto">
               {t('casesIntro')}
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {CASES.map((caseItem, index) => {
               const Icon = icons[index % icons.length]
               return (
@@ -85,14 +85,14 @@ export default function Cases() {
                   whileInView="visible"
                   viewport={{ once: true }}
                   custom={index}
-                  className="bg-white p-8 shadow-lg hover:shadow-xl transition-shadow group text-center"
+                  className="bg-white p-6 sm:p-8 shadow-lg hover:shadow-xl transition-shadow group text-center"
                 >
-                  <div className="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-gold/20 transition-colors">
-                    <Icon className="w-8 h-8 text-gold" />
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:bg-gold/20 transition-colors">
+                    <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-gold" />
                   </div>
-                  <h3 className="font-serif text-xl mb-2">{language === 'el' ? caseItem.name : caseItem.nameEn}</h3>
-                  <p className="text-sm text-gold mb-3">{language === 'el' ? caseItem.nameEn : caseItem.name}</p>
-                  <p className="text-charcoal/70 text-sm leading-relaxed">{language === 'el' ? caseItem.description : caseItem.descriptionEn}</p>
+                  <h3 className="font-serif text-lg sm:text-xl mb-2">{language === 'el' ? caseItem.name : caseItem.nameEn}</h3>
+                  <p className="text-xs sm:text-sm text-gold mb-2 sm:mb-3">{language === 'el' ? caseItem.nameEn : caseItem.name}</p>
+                  <p className="text-sm sm:text-base text-charcoal/70 leading-relaxed">{language === 'el' ? caseItem.description : caseItem.descriptionEn}</p>
                 </motion.div>
               )
             })}
@@ -103,19 +103,19 @@ export default function Cases() {
       {/* Education */}
       <section className="section-padding bg-ivory">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
             <motion.div
               variants={fadeUp}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
             >
-              <p className="eyebrow mb-4">{t('studentEducation')}</p>
-              <h2 className="font-serif text-heading mb-6">{t('studentEducation')}</h2>
-              <p className="text-lg leading-relaxed mb-6">
+              <p className="eyebrow mb-3 sm:mb-4">{t('studentEducation')}</p>
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-heading mb-4 sm:mb-6">{t('studentEducation')}</h2>
+              <p className="text-base sm:text-lg leading-relaxed mb-4 sm:mb-6">
                 {t('studentEducationText')}
               </p>
-              <p className="text-lg leading-relaxed">
+              <p className="text-base sm:text-lg leading-relaxed">
                 {t('therapeuticEducationNote')}
               </p>
             </motion.div>
@@ -145,13 +145,13 @@ export default function Cases() {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            <h2 className="font-serif text-heading mb-6">{t('wantToLearnMore')}</h2>
-            <p className="text-lg text-charcoal/70 mb-10">
+            <h2 className="font-serif text-2xl sm:text-3xl lg:text-heading mb-4 sm:mb-6">{t('wantToLearnMore')}</h2>
+            <p className="text-base sm:text-lg text-charcoal/70 mb-8 sm:mb-10">
               {t('contactDescription')}
             </p>
             <Link to="/contact" className="btn-primary inline-flex items-center gap-2">
               <span>{t('contactUs')}</span>
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </Link>
           </motion.div>
         </div>

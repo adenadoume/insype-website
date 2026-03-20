@@ -90,11 +90,11 @@ export default function Gallery() {
           style={{ backgroundImage: `url(${heroImage})` }}
         />
         <div className="absolute inset-0 bg-navy/50" />
-        <div className="relative z-10 text-center px-6">
-          <motion.p variants={fadeUp} initial="hidden" animate="visible" className="eyebrow mb-4">
+        <div className="relative z-10 text-center px-4 sm:px-6">
+          <motion.p variants={fadeUp} initial="hidden" animate="visible" className="eyebrow mb-3 sm:mb-4">
             {t('gallery')}
           </motion.p>
-          <motion.h1 variants={fadeUp} initial="hidden" animate="visible" custom={1} className="font-serif text-hero text-white">
+          <motion.h1 variants={fadeUp} initial="hidden" animate="visible" custom={1} className="font-serif text-3xl sm:text-hero text-white">
             {heroTitle}
           </motion.h1>
         </div>
@@ -108,15 +108,15 @@ export default function Gallery() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-10 sm:mb-16"
           >
-            <h2 className="font-serif text-heading mb-6">{heroSubtitle}</h2>
-            <div className="flex flex-wrap justify-center gap-3">
+            <h2 className="font-serif text-2xl sm:text-3xl lg:text-heading mb-4 sm:mb-6">{heroSubtitle}</h2>
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
               {filters.map((filter) => (
                 <button
                   key={filter.slug}
                   onClick={() => setActiveFilter(filter.slug)}
-                  className={`px-6 py-2 text-sm font-sans font-medium tracking-wider uppercase transition-all ${
+                  className={`px-4 sm:px-6 py-2 text-xs sm:text-sm font-sans font-medium tracking-wider uppercase transition-all ${
                     activeFilter === filter.slug
                       ? 'bg-gold text-white'
                       : 'bg-white text-charcoal hover:bg-gold/10'
@@ -129,7 +129,7 @@ export default function Gallery() {
           </motion.div>
 
           {/* Image Grid */}
-          <motion.div layout className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <motion.div layout className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
             <AnimatePresence>
               {filteredImages.map((image, index) => (
                 <motion.div
@@ -167,23 +167,23 @@ export default function Gallery() {
           >
             <button
               onClick={closeLightbox}
-              className="absolute top-6 right-6 text-white/80 hover:text-white transition-colors z-10"
+              className="absolute top-4 sm:top-6 right-4 sm:right-6 text-white/80 hover:text-white transition-colors z-10"
             >
-              <X className="w-8 h-8" />
+              <X className="w-6 h-6 sm:w-8 sm:h-8" />
             </button>
 
             <button
               onClick={(e) => { e.stopPropagation(); prevImage() }}
-              className="absolute left-6 text-white/80 hover:text-white transition-colors z-10"
+              className="absolute left-4 sm:left-6 text-white/80 hover:text-white transition-colors z-10"
             >
-              <ChevronLeft className="w-10 h-10" />
+              <ChevronLeft className="w-8 h-8 sm:w-10 sm:h-10" />
             </button>
 
             <button
               onClick={(e) => { e.stopPropagation(); nextImage() }}
-              className="absolute right-6 text-white/80 hover:text-white transition-colors z-10"
+              className="absolute right-4 sm:right-6 text-white/80 hover:text-white transition-colors z-10"
             >
-              <ChevronRight className="w-10 h-10" />
+              <ChevronRight className="w-8 h-8 sm:w-10 sm:h-10" />
             </button>
 
             <motion.img
