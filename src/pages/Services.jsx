@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion'
 import { ArrowRight, BookOpen, Hand, MessageCircle, Activity, Heart, Users, AlertCircle, Stethoscope, ClipboardCheck } from 'lucide-react'
 import { Link } from 'react-router-dom'
@@ -62,7 +63,7 @@ export default function Services() {
           <motion.p variants={fadeUp} initial="hidden" animate="visible" className="eyebrow mb-3 sm:mb-4">
             {t('therapeuticServices')}
           </motion.p>
-          <motion.h1 variants={fadeUp} initial="hidden" animate="visible" custom={1} className="font-serif text-3xl sm:text-hero text-white">
+          <motion.h1 variants={fadeUp} initial="hidden" animate="visible" custom={1} className="font-serif text-2xl sm:text-3xl md:text-hero text-white">
             {heroTitle}
           </motion.h1>
         </div>
