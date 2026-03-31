@@ -39,14 +39,14 @@ export const MANAGERS = [
     roleEn: 'Director',
   },
   {
-    name: 'Τρύφων Ζαχαριάδης',
-    nameEn: 'Tryfon Zahariadis',
+    name: '',
+    nameEn: '',
     role: 'Διευθύνων Σύμβουλος',
     roleEn: 'Managing Director',
   },
   {
-    name: 'Δημήτρης Αδάμης',
-    nameEn: 'Dimitrios Adamis',
+    name: '',
+    nameEn: '',
     role: 'Επιστημονικός Διευθυντής - Ψυχίατρος',
     roleEn: 'Scientific Director - Psychiatrist',
   },
