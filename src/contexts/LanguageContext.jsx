@@ -6,7 +6,7 @@ const translations = {
   el: {
     // Navigation
     home: 'Αρχική',
-    about: 'Ιστορικό',
+    about: 'Ιστορία',
     services: 'Υπηρεσίες',
     cases: 'Περιστατικά',
     personnel: 'Προσωπικό',
@@ -50,10 +50,13 @@ const translations = {
     // Page Titles
     servicesTitle: 'Υπηρεσίες',
     servicesSubtitle: 'Οι Θεραπευτικές μας Υπηρεσίες',
+    servicesIntro: 'Προσφέρουμε ολοκληρωμένες θεραπευτικές υπηρεσίες προσαρμοσμένες στις ανάγκες κάθε ατόμου, με στόχο την ανάπτυξη των δεξιοτήτων και την κοινωνική ένταξη.',
     casesTitle: 'Περιστατικά',
     casesSubtitle: 'Τα Περιστατικά που Δεχόμαστε',
+    casesIntro: 'Το Ινστιτούτο δέχεται άτομα με νοητική καθυστέρηση και νευροαναπτυξιακές διαταραχές, παρέχοντας εξειδικευμένη υποστήριξη για κάθε περίπτωση.',
     personnelTitle: 'Προσωπικό',
     personnelSubtitle: 'Το Εξειδικευμένο Προσωπικό μας',
+    personnelIntro: 'Το προσωπικό μας αποτελείται από εξειδικευμένους επιστήμονες και θεραπευτές με πολυετή εμπειρία στην υποστήριξη ατόμων με ειδικές ανάγκες.',
     galleryTitle: 'Φωτογραφίες',
     gallerySubtitle: 'Οι Χώροι μας',
     contactTitle: 'Επικοινωνία',
@@ -128,10 +131,13 @@ const translations = {
     // Page Titles
     servicesTitle: 'Services',
     servicesSubtitle: 'Our Therapeutic Services',
+    servicesIntro: 'We provide comprehensive therapeutic services tailored to the needs of each individual, aimed at developing skills and promoting social inclusion.',
     casesTitle: 'Cases',
     casesSubtitle: 'Cases We Accept',
+    casesIntro: 'The Institute accepts individuals with intellectual disabilities and neurodevelopmental disorders, providing specialized support for each case.',
     personnelTitle: 'Personnel',
     personnelSubtitle: 'Our Specialized Personnel',
+    personnelIntro: 'Our staff consists of specialized scientists and therapists with many years of experience supporting individuals with special needs.',
     galleryTitle: 'Photos',
     gallerySubtitle: 'Our Spaces',
     contactTitle: 'Contact',
